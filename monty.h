@@ -54,4 +54,5 @@ void print_stack_t(stack_t *stack);
 void free_stack_t(stack_t *stack);
 void pint(stack_t **stack, const unsigned int ln);
 void pop(stack_t **stack, const unsigned int ln);
+void nop(stack_t **stack, const unsigned int ln);
 #endif

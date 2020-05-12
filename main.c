@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 				{"pall", pall},
 				{"pint", pint},
 				{"pop", pop},
+				{"nop", nop},
 				};
 
 	if (argc != 2)
@@ -44,7 +45,7 @@ int main(int argc, char **argv)
 		opcode = strtok(line, delim);
 		arg = strtok(NULL, delim);
 
-		for (i = 0; i < 4; i++)
+		for (i = 0; i < 5; i++)
 		{
 			if (strcmp(opcode, codelist[i].opcode) == 0)
 			{
@@ -53,7 +54,7 @@ int main(int argc, char **argv)
 			}
 		}
 
-		if (i == 4)
+		if (i == 5)
 		{
 			dprintf(2, "L%d: unknown instruction %s\n", ln, opcode);
 			free(line);
