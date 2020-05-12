@@ -9,13 +9,25 @@
 
 void push(stack_t **stack, unsigned int line_number)
 {
-	/** new node, call func add node to top */
-	stack_t *newnode = addnodeint(stack, line_number);
+	extern char *arg;
+	int i, n;
 
-	/** incre top to point at empty space */
-	newnode->next = *stack;
-	/** top of stack is new pushed node */
-	*stack = newnode;
+	if (arg == NULL)
+	{
+		dprintf(2, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	for (i = 0; arg[i] != '\0'; i++)
+	{
+		if (arg[i] < '0' || arg[i] > '9')
+		{
+			dprintf(2, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	n = atoi(arg);
+	/** new node, call func add node to top */
+	addnodeint(stack, n);
 
 }
 

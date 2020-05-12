@@ -6,7 +6,6 @@ int main(int argc, char **argv)
 {
 	int i;
 	int fd;
-	int arg;
 	int ln = 0;
 	FILE *file;
 	char *opcode;
@@ -37,6 +36,9 @@ int main(int argc, char **argv)
 	while (getline(&line, &linelen, file) != -1)
 	{
 		ln++;
+		for (i = 0; line[i] != '\n'; i++)
+			;
+		line[i] = '\0';
 		opcode = strtok(line, delim);
 		arg = strtok(NULL, delim);
 
@@ -52,9 +54,16 @@ int main(int argc, char **argv)
 		if (i == 2)
 		{
 			dprintf(2, "L%d: unknown instruction %s", ln, opcode);
+			free(line);
+			free_stack_t(stack);
+			fclose(file);
+			close(fd);
 			exit(EXIT_FAILURE);
 		}
 	}
-
+	free_stack_t(stack);
+	free(line);
+	fclose(file);
+	close(fd);
 	return (0);
 }
