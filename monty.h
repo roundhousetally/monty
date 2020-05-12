@@ -44,9 +44,9 @@ typedef struct instruction_s
 
 /** Funcs */
 
-stack_s *addnodeint(stack_s **head, const int n);
+stack_t *addnodeint(stack_t **head, int n);
 void *push(stack_t **stack, unsigned int line_number);
 void *pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
-void print_stack_t(const stack_t *stack);
+void print_stack_t(stack_t *stack);
 
 #endif

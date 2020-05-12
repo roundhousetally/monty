@@ -1,7 +1,7 @@
 #include "monty.h"
 
 void *pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
-void print_stack_t(const stack_t *stack);
+void print_stack_t(stack_t *stack);
 
 /**
  * push - pushes a new node with info to top of the stack
@@ -40,9 +40,9 @@ void *pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
  * Return: elements in a stack
  */
 
-void print_stack_t(const stack_t *stack)
+void print_stack_t(stack_t *stack)
 {
-	const stack_t *temp;
+	stack_t *temp;
 
 	temp = stack;
 
