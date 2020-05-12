@@ -52,4 +52,5 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void print_stack_t(stack_t *stack);
 void free_stack_t(stack_t *stack);
+void pint(stack_t **stack, const unsigned int ln);
 #endif

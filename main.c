@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 	instruction_t codelist[] = {
 				{"push", push},
 				{"pall", pall},
+				{"pint", pint},
 				};
 
 	if (argc != 2)
@@ -42,7 +43,7 @@ int main(int argc, char **argv)
 		opcode = strtok(line, delim);
 		arg = strtok(NULL, delim);
 
-		for (i = 0; i < 2; i++)
+		for (i = 0; i < 3; i++)
 		{
 			if (strcmp(opcode, codelist[i].opcode) == 0)
 			{
@@ -51,9 +52,9 @@ int main(int argc, char **argv)
 			}
 		}
 
-		if (i == 2)
+		if (i == 3)
 		{
-			dprintf(2, "L%d: unknown instruction %s", ln, opcode);
+			dprintf(2, "L%d: unknown instruction %s\n", ln, opcode);
 			free(line);
 			free_stack_t(stack);
 			fclose(file);
