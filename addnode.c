@@ -13,7 +13,7 @@ stack_t *addnodeint(stack_t **head, int n)
 
 	temp = *head;
 
-	new_node = malloc(sizeof(dlistint_t));
+	new_node = malloc(sizeof(stack_t));
 	if (head == NULL || new_node == NULL)
 	{
 		free(new_node);
@@ -33,5 +33,4 @@ stack_t *addnodeint(stack_t **head, int n)
 	temp->prev = new_node;
 	(*head) = new_node;
 	return (*head);
-
 }

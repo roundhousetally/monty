@@ -1,8 +1,5 @@
 #include "monty.h"
 
-void *pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
-void print_stack_t(stack_t *stack);
-
 /**
  * push - pushes a new node with info to top of the stack
  * @stack - incoming stack
@@ -10,10 +7,10 @@ void print_stack_t(stack_t *stack);
  * Return: void
  */
 
-void *push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	/** new node, call func add node to top */
-	stack_t *newnode = addnodeint(**stack, line_number);
+	stack_t *newnode = addnodeint(stack, line_number);
 
 	/** incre top to point at empty space */
 	newnode->next = *stack;
@@ -29,7 +26,7 @@ void *push(stack_t **stack, unsigned int line_number)
  * Return: void
  */
 
-void *pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
+void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 {
 	print_stack_t(*stack);
 }
