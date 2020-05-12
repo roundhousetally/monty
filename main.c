@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char *arg = NULL;
+
 int main(int argc, char **argv)
 {
 	int i;
@@ -36,7 +38,7 @@ int main(int argc, char **argv)
 	{
 		ln++;
 		opcode = strtok(line, delim);
-		arg = atoi(strtok(NULL, delim));
+		arg = strtok(NULL, delim);
 
 		for (i = 0; i < 2; i++)
 		{
