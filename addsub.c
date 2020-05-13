@@ -11,11 +11,13 @@ void add(stack_t **stack, unsigned int ln)
 
 	if (*stack == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't add, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't add, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
@@ -36,11 +38,13 @@ void sub(stack_t **stack, unsigned int ln)
 
 	if (*stack == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't sub, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't sub, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
@@ -61,16 +65,19 @@ void divy(stack_t **stack, unsigned int ln)
 
 	if (*stack == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't div, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't div, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: division by zero\n", ln);
 		exit(EXIT_FAILURE);
 	}
@@ -91,11 +98,13 @@ void mul(stack_t **stack, unsigned int ln)
 
 	if (*stack == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't mul, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't mul, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
@@ -116,16 +125,19 @@ void mod(stack_t **stack, unsigned int ln)
 
 	if (*stack == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't mod, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->next == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't mod, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n == 0)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: division by zero\n", ln);
 		exit(EXIT_FAILURE);
 	}

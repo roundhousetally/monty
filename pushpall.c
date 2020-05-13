@@ -10,9 +10,11 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	/**	extern char *arg;*/
 	int i, n;
+	char *arg = args[3];
 
 	if (arg == NULL)
 	{
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
@@ -20,6 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		if (arg[i] < '0' || arg[i] > '9')
 		{
+			freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 			dprintf(2, "L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
 		}

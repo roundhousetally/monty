@@ -1,6 +1,6 @@
 #include "monty.h"
 
-char *arg = NULL;
+void *args[4];
 
 /**
  * main - finds the correct function to run based on commands given
@@ -26,11 +26,14 @@ int main(int argc, char **argv)
 	if (argc != 2)
 		error(NULL, ln, 'u');
 	fd = open(argv[1], O_RDONLY);
+	args[2] = &fd;
 	if (fd == -1)
 		error(argv[1], ln, 'f');
 	file = fdopen(fd, "r");
+	args[1] = file;
 	while (getline(&line, &linelen, file) != -1)
 	{
+		args[0] = line;
 		ln++;
 		for (i = 0; line[i] != '\n' && line[i] != '\0'; i++)
 			;
@@ -38,7 +41,7 @@ int main(int argc, char **argv)
 		opcode = strtok(line, delim);
 		if (opcode == NULL)
 			continue;
-		arg = strtok(NULL, delim);
+		args[3] = strtok(NULL, delim);
 		for (i = 0; i < 11 && strcmp(opcode, codelist[i].opcode) != 0; i++)
 			;
 		if (i == 11)

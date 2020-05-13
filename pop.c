@@ -13,7 +13,8 @@ void pop(stack_t **stack, const unsigned int ln __attribute__((unused)))
 
 	if (old == NULL)
 	{
-		dprintf(2, "L%d: can't pop an empty stack", ln);
+		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
+		dprintf(2, "L%d: can't pop an empty stack\n", ln);
 		exit(EXIT_FAILURE);
 	}
 
