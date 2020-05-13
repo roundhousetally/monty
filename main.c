@@ -29,8 +29,7 @@ int main(int argc, char **argv)
 	args[2] = &fd;
 	if (fd == -1)
 		error(argv[1], ln, 'f');
-	file = fdopen(fd, "r");
-	args[1] = file;
+	file = fdopen(fd, "r"), args[1] = file;
 	while (getline(&line, &linelen, file) != -1)
 	{
 		args[4] = stack;
@@ -80,7 +79,7 @@ void error(char *str, unsigned int ln, char c)
 	if (c == 'i')
 	{
 		dprintf(2, "L%d: unknown instruction %s\n", ln, str);
-		freeall((stack_t *)args[4], (char *)args[0], (FILE *)args[1], *((int *)args[2]));
+		freeall(args[4], (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 	}
 	else if (c == 'f')
 		dprintf(2, "Error: Can't open file %s\n", str);
