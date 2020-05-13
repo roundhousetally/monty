@@ -58,4 +58,6 @@ void pint(stack_t **stack, const unsigned int ln);
 void pop(stack_t **stack, const unsigned int ln);
 void nop(stack_t **stack, const unsigned int ln);
 void swap(stack_t **stack, unsigned int line_number);
+void freeall(stack_t *stack, char *line, FILE *file, int fd);
+void error(char *str, unsigned int ln, char c);
 #endif
