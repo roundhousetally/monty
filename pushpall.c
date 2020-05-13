@@ -20,7 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	for (i = 0; arg[i] != '\0'; i++)
 	{
-		if ((arg[i] < '0' || arg[i] > '9') && arg[0] != '-')
+		if ((arg[i] < '0' || arg[i] > '9') && arg[i] != '-')
 		{
 			freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 			dprintf(2, "L%d: usage: push integer\n", line_number);
