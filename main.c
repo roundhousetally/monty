@@ -36,6 +36,8 @@ int main(int argc, char **argv)
 			;
 		line[i] = '\0';
 		opcode = strtok(line, delim);
+		if (opcode == NULL)
+			continue;
 		arg = strtok(NULL, delim);
 		for (i = 0; i < 11 && strcmp(opcode, codelist[i].opcode) != 0; i++)
 			;
