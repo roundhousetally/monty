@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void *args[4];
+void *args[5];
 
 /**
  * main - finds the correct function to run based on commands given
@@ -33,6 +33,7 @@ int main(int argc, char **argv)
 	args[1] = file;
 	while (getline(&line, &linelen, file) != -1)
 	{
+		args[4] = stack;
 		args[0] = line;
 		ln++;
 		for (i = 0; line[i] != '\n' && line[i] != '\0'; i++)
@@ -45,7 +46,7 @@ int main(int argc, char **argv)
 		for (i = 0; i < 11 && strcmp(opcode, codelist[i].opcode) != 0; i++)
 			;
 		if (i == 11)
-			freeall(stack, line, file, fd), error(opcode, ln, 'i');
+			error(opcode, ln, 'i');
 		if (strcmp(opcode, codelist[i].opcode) == 0)
 			codelist[i].f(&stack, ln);
 	}
@@ -77,7 +78,10 @@ void freeall(stack_t *stack, char *line, FILE *file, int fd)
 void error(char *str, unsigned int ln, char c)
 {
 	if (c == 'i')
+	{
 		dprintf(2, "L%d: unknown instruction %s\n", ln, str);
+		freeall((stack_t *)args[4], (char *)args[0], (FILE *)args[1], *((int *)args[2]));
+	}
 	else if (c == 'f')
 		dprintf(2, "Error: Can't open file %s\n", str);
 	else if (c == 'u')

@@ -1,21 +1,19 @@
-push 0
-add
 push 1
 push 2
-
-pint
-pop
-swap
-nop
-push 2
-push 2
 add
-push 2
-sub
-push 2
-div
-push 2
-mul
+pint
 push 3
+sub
+pint
+push 4
+mul
+push 5
+div
+push 6
 mod
+push 7
+swap
+push 8
+nop
+pop
 pall

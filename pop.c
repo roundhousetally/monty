@@ -18,8 +18,13 @@ void pop(stack_t **stack, const unsigned int ln __attribute__((unused)))
 		exit(EXIT_FAILURE);
 	}
 
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
+	if ((*stack)->next != NULL)
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+	}
+	else
+		*stack = NULL;
 
 	free(old);
 }

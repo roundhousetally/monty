@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 /** Our one global var */
-extern void *args[4];
+extern void *args[5];
 
 /** Structs */
 

@@ -11,7 +11,7 @@ void swap(stack_t **stack, unsigned int line_number)
 {
 	int n;
 
-	if ((*stack) == NULL)
+	if (*stack == NULL)
 	{
 		freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
 		dprintf(2, "L%d: can't swap, stack too short\n", line_number);
