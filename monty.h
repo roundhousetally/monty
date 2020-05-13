@@ -54,10 +54,15 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number __attribute__((unused)));
 void print_stack_t(stack_t *stack);
 void free_stack_t(stack_t *stack);
-void pint(stack_t **stack, const unsigned int ln);
-void pop(stack_t **stack, const unsigned int ln);
-void nop(stack_t **stack, const unsigned int ln);
+void pint(stack_t **stack, unsigned int ln);
+void pop(stack_t **stack, unsigned int ln);
+void nop(stack_t **stack, unsigned int ln);
 void swap(stack_t **stack, unsigned int line_number);
 void freeall(stack_t *stack, char *line, FILE *file, int fd);
 void error(char *str, unsigned int ln, char c);
+void add(stack_t **stack, unsigned int ln);
+void sub(stack_t **stack, unsigned int ln);
+void divy(stack_t **stack, unsigned int ln);
+void mul(stack_t **stack, unsigned int ln);
+void mod(stack_t **stack, unsigned int ln);
 #endif
