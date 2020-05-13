@@ -18,7 +18,7 @@ stack_t *addnodeint(stack_t **head, int n)
 	{
 		dprintf(2, "Error: malloc failed\n");
 		freeall((stack_t *)args[4], (char *)args[0], (FILE *)args[1],
-			*((int *)args[2]))
+			*((int *)args[2]));
 		exit(EXIT_FAILURE);
 	}
 
