@@ -2,7 +2,7 @@
 
 /**
  * free_stack_t - free's a stack
- * @stack - stack to free
+ * @stack: stack to free
  * Return: void
  */
 

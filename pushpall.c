@@ -2,14 +2,13 @@
 
 /**
  * push - pushes a new node with info to top of the stack
- * @stack - incoming stack
- * @line_number - line number
+ * @stack: incoming stack
+ * @line_number: line number
  * Return: void
  */
-
 void push(stack_t **stack, unsigned int line_number)
 {
-	extern char *arg;
+	/**	extern char *arg;*/
 	int i, n;
 
 	if (arg == NULL)
@@ -33,8 +32,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 /**
  * pall - prints all the values on the stack starting from the top
- * @stack - incoming stack
- * @line_number - data
+ * @stack: incoming stack
+ * @line_number: att unused
  * Return: void
  */
 
@@ -45,7 +44,7 @@ void pall(stack_t **stack, unsigned int line_number __attribute__((unused)))
 
 /**
  * print_stack_t - prints elements in a stack
- * @h: top of stack
+ * @stack: top of stack
  * Return: elements in a stack
  */
 

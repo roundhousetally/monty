@@ -1,5 +1,12 @@
 #include "monty.h"
 
+/**
+ * pop - deletes the top node of a stack
+ * @stack: stack top
+ * @ln: att unused
+ * Return: void
+ */
+
 void pop(stack_t **stack, const unsigned int ln __attribute__((unused)))
 {
 	stack_t *old = *stack;
