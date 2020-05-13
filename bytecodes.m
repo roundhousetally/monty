@@ -1,4 +1,4 @@
-push 1
+push 19
 push 2
 add
 pint
@@ -7,7 +7,7 @@ sub
 pint
 push 4
 mul
-push 5
+push 0
 div
 push 6
 mod

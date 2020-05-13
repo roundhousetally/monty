@@ -30,7 +30,6 @@ void push(stack_t **stack, unsigned int line_number)
 	n = atoi(arg);
 	/** new node, call func add node to top */
 	addnodeint(stack, n);
-
 }
 
 /**
