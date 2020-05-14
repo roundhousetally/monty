@@ -65,4 +65,5 @@ void sub(stack_t **stack, unsigned int ln);
 void divy(stack_t **stack, unsigned int ln);
 void mul(stack_t **stack, unsigned int ln);
 void mod(stack_t **stack, unsigned int ln);
+int iscomment(char *line);
 #endif

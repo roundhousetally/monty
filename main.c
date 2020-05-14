@@ -32,12 +32,12 @@ int main(int argc, char **argv)
 	file = fdopen(fd, "r"), args[1] = file;
 	while (getline(&line, &linelen, file) != -1)
 	{
-		args[4] = stack;
-		args[0] = line;
-		ln++;
+		args[4] = stack, args[0] = line, ln++;
 		for (i = 0; line[i] != '\n' && line[i] != '\0'; i++)
 			;
 		line[i] = '\0';
+		if (iscomment(line))
+			continue;
 		opcode = strtok(line, delim);
 		if (opcode == NULL)
 			continue;

@@ -29,8 +29,8 @@ void push(stack_t **stack, unsigned int line_number)
 		if (arg[i] == '-' && arg[i + 1] == '\0')
 		{
 			freeall(*stack, (char *)args[0], (FILE *)args[1], *((int *)args[2]));
-                        dprintf(2, "L%d: usage: push integer\n", line_number);
-                        exit(EXIT_FAILURE);
+			dprintf(2, "L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
 		}
 
 	}
