@@ -25,14 +25,14 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		error(NULL, ln, 'u');
-	fd = open(argv[1], O_RDONLY);
-	args[2] = &fd;
+	fd = open(argv[1], O_RDONLY), args[2] = &fd;
 	if (fd == -1)
 		error(argv[1], ln, 'f');
 	file = fdopen(fd, "r"), args[1] = file;
+	if (file == NULL)
+		error(NULL, ln, 'm');
 	while (getline(&line, &linelen, file) != -1)
-	{
-		args[4] = stack, args[0] = line, ln++;
+	{args[4] = stack, args[0] = line, ln++;
 		for (i = 0; line[i] != '\n' && line[i] != '\0'; i++)
 			;
 		line[i] = '\0';
@@ -80,6 +80,11 @@ void error(char *str, unsigned int ln, char c)
 	{
 		dprintf(2, "L%d: unknown instruction %s\n", ln, str);
 		freeall(args[4], (char *)args[0], (FILE *)args[1], *((int *)args[2]));
+	}
+	else if (c == 'm')
+	{
+		dprintf(2, "Error: malloc failed\n");
+		close(*((int *)args[2]));
 	}
 	else if (c == 'f')
 		dprintf(2, "Error: Can't open file %s\n", str);
