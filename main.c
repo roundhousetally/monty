@@ -18,9 +18,10 @@ int main(int argc, char **argv)
 	size_t linelen = 0;
 	stack_t *stack = NULL;
 	instruction_t codelist[] = {
-				{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
-				{"swap", swap}, {"nop", nop}, {"add", add}, {"sub", sub}, {"div", divy},
-				{"mul", mul}, {"mod", mod}, {"pchar", pchar}, {"pstr", pstr}
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop}, {"swap", swap},
+		{"nop", nop}, {"add", add}, {"sub", sub}, {"div", divy}, {"mul", mul},
+		{"mod", mod}, {"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl},
+		{"rotr", rotr}
 				};
 
 	if (argc != 2)
@@ -42,12 +43,11 @@ int main(int argc, char **argv)
 		if (opcode == NULL)
 			continue;
 		args[3] = strtok(NULL, delim);
-		for (i = 0; i < 13 && strcmp(opcode, codelist[i].opcode) != 0; i++)
+		for (i = 0; i < 15 && strcmp(opcode, codelist[i].opcode) != 0; i++)
 			;
-		if (i == 13)
+		if (i == 15)
 			error(opcode, ln, 'i');
-		if (strcmp(opcode, codelist[i].opcode) == 0)
-			codelist[i].f(&stack, ln);
+		codelist[i].f(&stack, ln);
 	}
 	freeall(stack, line, file, fd);
 	return (0);
