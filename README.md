@@ -43,6 +43,10 @@ file is the path to the file containing Monty byte code
 
 `pstr` prints the string starting at the top of the stack
 
+`rotl` rotates the stack to the top
+
+`rotr` rotates the stack to the bottom
+
 `# handles comments`
 
 ### Authors
