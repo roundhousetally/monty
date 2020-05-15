@@ -39,6 +39,12 @@ file is the path to the file containing Monty byte code
 
 `mod` mods the second top elem of the stack by the top elem
 
+`pchar` prints the char at the top of the stack
+
+`pstr` prints the string starting at the top of the stack
+
+`# handles comments`
+
 ### Authors
 ----
 [Sean Taylor](https://github.com/MadmanSilver/)
